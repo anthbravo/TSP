@@ -7,21 +7,23 @@ function obtainDataset() {
     fetch(urlDataset)
         .then(response => response.json())
         .then(data => {
-            var codigo = 0;
-            console.log(codigo);
+            var index = 0;
             dataset = data;
             dataset.forEach(data => {
-                data.title = 'Departamento: ' +
-                    data.DEP +
-                    ' | Provincia: ' +
-                    data.PROV +
-                    ' | Distrito: ' +
-                    data.DIST +
-                    ' | Centro Poblado: ' +
-                    data.MNOMCP;
-                data.label = codigo;
-
-                codigo++;
+                data.index = index;
+                index++;
+                data.description =
+                    '<h2>Centro Poblado ' + data.MNOMCP + '</h2>' +
+                    '</br>' +
+                    '<strong>Departamento: </strong>' + data.DEP +
+                    '</br>' +
+                    '<strong>Provincia: </strong>' + data.PROV +
+                    '</br>' +
+                    '<strong>Distrito: </strong>' + data.DIST +
+                    '</br>' +
+                    '<strong>Latitud: </strong>' + data.YGD +
+                    '</br>' +
+                    '<strong>Longitud: </strong>' + data.XGD;
             });
         });
 }
@@ -43,16 +45,40 @@ window.onload = function () {
     }
 
     function loadMarks() {
+
+        var infoWindow = new google.maps.InfoWindow({
+            content: ''
+        });
+
         dataset.forEach(data => {
-            new google.maps.Marker({
+            var marker = new google.maps.Marker({
                 position: {
                     lat: data.YGD,
                     lng: data.XGD
                 },
-                title: data.title,
-                label: data.label + '',
+                title: data.MNOMCP,
+                label: data.index + '',
                 map: map
             });
+
+            google.maps.event.addListener(marker, 'mouseover', function () {
+
+                infoWindow.close();
+
+                infoWindow = new google.maps.InfoWindow({
+                    content: data.description
+                });
+
+                infoWindow.open(map, marker);
+            });
+
+            google.maps.event.addListener(marker, 'dblclick', function () {
+
+                infoWindow.close();
+
+                console.log(data.index);
+            });
+
         });
     }
 
