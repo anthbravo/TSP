@@ -88,11 +88,20 @@ window.onload = function () {
 
                 infoWindow.close();
 
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+
                 var travel = [];
 
                 tsp(dataset, data.index, travel);
 
-                console.log(optimumTravel);
+                var finalTravel = (optimumTravel[optimumTravel.length - 1].total / 1000);
+
+                console.log('Recorrido final de ' + finalTravel + ' km');
+                console.log('Puedes ver el detalle del recorrido en el arreglo');
+                console.log('Distancia => recorrido en metros con respecto al punto anterior');
+                console.log('Total => recorrido acumulado en metros');
+
+                console.dir(optimumTravel);
 
                 var flightPath = new google.maps.Polyline({
                     path: optimumTravel,
@@ -103,6 +112,17 @@ window.onload = function () {
                 });
 
                 flightPath.setMap(map);
+
+                Swal.fire(
+                    'El recorrido minimo es de ' + finalTravel + ' km',
+                    'Aprieta F12 para ver detalle del recorrido en consola!',
+                    'success'
+                ).then(() => {
+                    setTimeout(() => {
+                        marker.setAnimation(null);
+                    }, 10000);
+                });
+
             });
 
         });
