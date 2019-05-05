@@ -7,7 +7,7 @@ function obtainDataset() {
 
     var urlDataset = '/resource/dataset.json';
 
-    fetch(urlDataset)
+    return fetch(urlDataset)
         .then(response => response.json())
         .then(data => {
             var index = 0;
@@ -39,8 +39,6 @@ function calculatePermutation(value) {
         return value * calculatePermutation(value - 1);
     }
 }
-
-obtainDataset();
 
 window.onload = function () {
 
@@ -196,10 +194,9 @@ window.onload = function () {
 
     }
 
-    initializeMap();
-    loadMarks();
-
-
-
+    obtainDataset().then(() => {
+        initializeMap();
+        loadMarks();
+    });
 
 }

@@ -11,7 +11,7 @@ Para poder deployar el proyecto sera necesario alojarlo en un servidor de aplica
 - Ejecutar el comando "npm install -g http-server".
 - Ubicarte en la raiz del proyecto y ejecutar "http-server -c-1 -d".
 
-#Uso
+# Uso
 
 - Cada punto debe ser cargado mediante el dataset.json, de tal forma que debes seguir el formato para que no te produzca errores.
 - El calculo se realiza luego de dar doble click sobre alguna marca en el mapa.
