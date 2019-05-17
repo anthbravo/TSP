@@ -1,17 +1,39 @@
-# TSP
+# node-js-getting-started
 
-El presente proyecto afronta el problema del viajero con una complejidad ((n-1)!/2), donde n es el numero de puntos a visitar.
-Para ilustrar de forma correcta el proyecto se uso el API de google maps,html y JS para la aplicación de los algoritmos.
+A barebones Node.js app using [Express 4](http://expressjs.com/).
 
-# Deploy
+This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
 
-Para poder deployar el proyecto sera necesario alojarlo en un servidor de aplicaciones. A continuación muestro la forma de hacerlo mediante http-server:
+## Running Locally
 
-- Debes tener instalado node (incluye npm).
-- Ejecutar el comando "npm install -g http-server".
-- Ubicarte en la raiz del proyecto y ejecutar "http-server -c-1 -d".
+Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
 
-# Uso
+```sh
+$ git clone https://github.com/heroku/node-js-getting-started.git # or clone your own fork
+$ cd node-js-getting-started
+$ npm install
+$ npm start
+```
 
-- Cada punto debe ser cargado mediante el dataset.json, de tal forma que debes seguir el formato para que no te produzca errores.
-- El calculo se realiza luego de dar doble click sobre alguna marca en el mapa.
+Your app should now be running on [localhost:5000](http://localhost:5000/).
+
+## Deploying to Heroku
+
+```
+$ heroku create
+$ git push heroku master
+$ heroku open
+```
+or
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+## Documentation
+
+For more information about using Node.js on Heroku, see these Dev Center articles:
+
+- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
+- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
+- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
+- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
+- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
