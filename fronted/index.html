@@ -19,32 +19,36 @@
 
 <body>
 
-
-    <select id="selectServicio" onchange="showOptions(this.value)">
-        <option value="0">SELECIONE SERVICIO</option>
-        <option value="1">CENTROS POBLADOS</option>
-        <option value="2">CENTROS EDUCATIVOS</option>
-    </select>
+    <div id="divService">
+        <h1>SELECIONE SERVICIO</h1>
+        <select id="selectService" onchange="showOptions(this.value)">
+            <option value="1">CENTROS POBLADOS</option>
+            <option value="2">CENTROS EDUCATIVOS</option>
+        </select>
+    </div>
 
     <div id="divOptions">
-
-        <select id="selectCentroPoblado" style="display:none">
-            <option value="0">SELECIONE DELIMITACION</option>
+        <h1>SELECIONE DELIMITACION</h1>
+        <select id="selectCentroPoblado">
             <option value="1">CAPITALES</option>
             <option value="2">PROVINCIAS</option>
-            <option value="2">DISTRITOS</option>
+            <option value="3">DISTRITOS</option>
         </select>
 
         <select id="selectCentroEducativo" style="display:none">
-            <option value="0">SELECIONE DELIMITACION</option>
             <option value="1">LIMA</option>
-            <option value="2">DISTRITO - SAN MARTIN DE PORRES</option>
+            <option value="2">SAN MARTIN DE PORRES</option>
             <option value="3">APURIMAC</option>
         </select>
-
     </div>
 
-    <!-- <div id="map"></div> -->
+    <div id="divProcess">
+        <button id="buttonProcess" onclick="process(selectService.value)">Procesar</button>
+    </div>
+
+    <div id="divMap" style="display: none"></div>
+
+    <div id="divLoader" style="display: none"></div>
 
 </body>
 

@@ -1,16 +1,14 @@
 function showOrHideElement(id, work) {
     var element = document.getElementById(id);
     if (work == 1) {
-        element.style.display = 'block';
+        element.style.display = '';
     } else {
         element.style.display = 'none';
     }
 }
 
 function showOptions(value) {
-    if (value == 0) {
-        showOrHideElement('divOptions', 0);
-    } else if (value == 1) {
+    if (value == 1) {
         showOrHideElement('divOptions', 1);
         showOrHideElement('selectCentroPoblado', 1);
         showOrHideElement('selectCentroEducativo', 0);
@@ -19,5 +17,29 @@ function showOptions(value) {
         showOrHideElement('selectCentroPoblado', 0);
         showOrHideElement('selectCentroEducativo', 1);
     }
+
+}
+
+function process(service) {
+
+    showOrHideElement('divService', 0);
+    showOrHideElement('divOptions', 0);
+    showOrHideElement('divProcess', 0);
+    showOrHideElement('divLoader', 1);
+
+    var process = {};
+
+    process['service'] = service;
+
+    if (service == 1) {
+        process['option'] = document.getElementById('selectCentroPoblado').value;
+    } else if (service == 2) {
+        process['option'] = document.getElementById('selectCentroEducativo').value;
+    }
+
+    var processSend = JSON.stringify(process);
+
+    //Crear metodo que pueda enviar el json Y procesar la respuesta mostrandolo en el map
+    console.log(processSend);
 
 }

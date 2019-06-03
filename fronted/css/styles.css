@@ -1,10 +1,90 @@
-/* #map {
-    height: 100%;
-} */
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
 
 html,
 body {
     height: 100%;
-    margin: 0;
-    padding: 0;
+    background-color: #6bc799;
+    background-image: (141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#divService {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#divOptions {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#divProcess {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+h1 {
+    font-size: 2em;
+    color: #3C4742;
+}
+
+select {
+    font-size: 1.3em;
+    border-radius: 1em;
+    padding: 0.5em;
+    color: #3C4742;
+}
+
+button {
+    font-size: 1.5em;
+    border-radius: 1em 3em 1em 3em;
+    padding: 0.5em;
+    background-color: #AFD0C0;
+    color: #3C4742;
+    box-shadow: 0.1em 0.1em #3C4742;
+}
+
+#divMap {
+    height: 100vh;
+}
+
+#divLoader {
+    border: 3em solid #f3f3f3;
+    border-top: 3em solid #3C4742;
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
