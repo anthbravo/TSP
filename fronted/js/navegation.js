@@ -20,8 +20,9 @@ function showOptions(value) {
 
 }
 
-function process(service) {
+function process(algorithm, service) {
 
+    showOrHideElement('divAlgorithm', 0);
     showOrHideElement('divService', 0);
     showOrHideElement('divOptions', 0);
     showOrHideElement('divProcess', 0);
@@ -41,5 +42,11 @@ function process(service) {
 
     //Crear metodo que pueda enviar el json Y procesar la respuesta mostrandolo en el map
     console.log(processSend);
+    if (algorithm == 1) {
+        
+    } else if (algorithm == 2) {
+
+    }
+
 
 }

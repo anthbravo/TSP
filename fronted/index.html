@@ -19,6 +19,14 @@
 
 <body>
 
+    <div id="divAlgorithm">
+        <h1>SELECIONE ALGORITMO</h1>
+        <select id="selectAlgorithm">
+            <option value="1">CARTESIANO</option>
+            <option value="2">COMBINATORIA/2</option>
+        </select>
+    </div>
+
     <div id="divService">
         <h1>SELECIONE SERVICIO</h1>
         <select id="selectService" onchange="showOptions(this.value)">
@@ -43,7 +51,7 @@
     </div>
 
     <div id="divProcess">
-        <button id="buttonProcess" onclick="process(selectService.value)">Procesar</button>
+        <button id="buttonProcess" onclick="process(selectAlgorithm.value, selectService.value)">Procesar</button>
     </div>
 
     <div id="divMap" style="display: none"></div>

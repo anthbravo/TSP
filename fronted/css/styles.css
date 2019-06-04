@@ -21,8 +21,16 @@ body {
     justify-content: space-around;
 }
 
+#divAlgorithm {
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
 #divService {
-    height: 30vh;
+    height: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,7 +38,7 @@ body {
 }
 
 #divOptions {
-    height: 30vh;
+    height: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,7 +46,7 @@ body {
 }
 
 #divProcess {
-    height: 30vh;
+    height: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
