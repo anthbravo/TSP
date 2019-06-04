@@ -1,18 +1,24 @@
 const http = require('http');
 const url = require('url');
 
-module.exports = http.createServer((req, res) => {
+const resource = require('./resource').loadResources();
 
+module.exports = http.createServer((req, res) => {
     var service = require('./service.js');
     const reqUrl = url.parse(req.url, true);
 
-    // GET Endpoint
-    if (reqUrl.pathname == '/sample' && req.method === 'GET') {
+    if (reqUrl.pathname == '/cartesian' && req.method === 'POST') {
         console.log('Request Type:' +
             req.method + ' Endpoint: ' +
             reqUrl.pathname);
 
-        service.sampleRequest(req, res);
+        service.cartesian(req, res, resource);
+    } else if (reqUrl.pathname == '/combinatorial' && req.method === 'POST') {
+        console.log('Request Type:' +
+            req.method + ' Endpoint: ' +
+            reqUrl.pathname);
+
+        service.combinatorial(req, res, resource);
     } else if (reqUrl.pathname == '/' && req.method === 'GET') {
         console.log('Request Type:' +
             req.method + ' Endpoint: ' +
