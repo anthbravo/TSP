@@ -1,24 +1,36 @@
 const http = require('http');
 const url = require('url');
 
-const resource = require('./resource').loadResources();
+const resources = require('./resource').loadResources();
 
 module.exports = http.createServer((req, res) => {
     var service = require('./service.js');
     const reqUrl = url.parse(req.url, true);
 
-    if (reqUrl.pathname == '/cartesian' && req.method === 'POST') {
+    if (reqUrl.pathname == '/calculate' && req.method === 'POST') {
         console.log('Request Type:' +
             req.method + ' Endpoint: ' +
             reqUrl.pathname);
 
-        service.cartesian(req, res, resource);
-    } else if (reqUrl.pathname == '/combinatorial' && req.method === 'POST') {
-        console.log('Request Type:' +
-            req.method + ' Endpoint: ' +
-            reqUrl.pathname);
+        var response = {};
 
-        service.combinatorial(req, res, resource);
+        req.on('data', data => {
+            jsonData = JSON.parse(data);
+
+            if (jsonData['algorithm'] == 1) {
+                service.slope(jsonData, response, resources);
+            } else if (jsonData['algorithm'] == 2) {
+                service.combinatorial(jsonData, response, resources);
+            }
+        });
+
+        req.on('end', () => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify(response));
+        });
+
+
     } else if (reqUrl.pathname == '/' && req.method === 'GET') {
         console.log('Request Type:' +
             req.method + ' Endpoint: ' +
