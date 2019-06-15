@@ -7,7 +7,17 @@ module.exports = http.createServer((req, res) => {
     var service = require('./service.js');
     const reqUrl = url.parse(req.url, true);
 
-    if (reqUrl.pathname == '/calculate' && req.method === 'POST') {
+    if (req.method === 'OPTIONS') {
+        console.log('Request Type:' +
+            req.method + ' Endpoint: ' +
+            reqUrl.pathname);
+
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.writeHead(200);
+        res.end();
+        return;
+
+    } else if (reqUrl.pathname == '/calculate' && req.method === 'POST') {
         console.log('Request Type:' +
             req.method + ' Endpoint: ' +
             reqUrl.pathname);
@@ -25,8 +35,9 @@ module.exports = http.createServer((req, res) => {
         });
 
         req.on('end', () => {
-            res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Access-Control-Allow-Origin', '*');
+            res.statusCode = 200;
             res.end(JSON.stringify(response));
         });
 
