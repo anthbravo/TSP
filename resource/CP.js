@@ -15,7 +15,7 @@ function loadAndWriteCP(INPUT, OUTPUT, CAPITAL_CODE) {
             centroPoblado['code'] = CP.CODCP;
             centroPoblado['name'] = CP.NOMCP;
             centroPoblado['lat'] = CP.YGD;
-            centroPoblado['long'] = CP.XGD;
+            centroPoblado['lng'] = CP.XGD;
 
             newDataset.push(centroPoblado);
         }
