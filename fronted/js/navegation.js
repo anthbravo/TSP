@@ -20,6 +20,16 @@ function showOptions(value) {
 
 }
 
+function showSolution(data) {
+    console.log("Tiempo(ms): ", data['time']);
+    console.log("Distancia(km): ", data['distance']);
+    
+    showMap(data);
+
+    showOrHideElement('divLoader', 0);
+    showOrHideElement('divMap', 1);
+}
+
 function process(algorithm, service) {
 
     showOrHideElement('divAlgorithm', 0);
@@ -30,6 +40,7 @@ function process(algorithm, service) {
 
     var process = {};
 
+    process['algorithm'] = algorithm;
     process['service'] = service;
 
     if (service == 1) {
@@ -40,13 +51,19 @@ function process(algorithm, service) {
 
     var processSend = JSON.stringify(process);
 
-    //Crear metodo que pueda enviar el json Y procesar la respuesta mostrandolo en el map
-    console.log(processSend);
-    if (algorithm == 1) {
-        
-    } else if (algorithm == 2) {
+    var url = 'http://localhost:5000/calculate';
 
-    }
-
+    fetch(url, {
+        method: 'POST',
+        body: processSend,
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).then(response => {
+        response.json().then(data => {
+            showSolution(data);
+        });
+    });
 
 }
