@@ -34,14 +34,14 @@ exports.slope = (data, response, resources) => {
 
     var bottomPoint = dataset[0];
     var upperPoint = dataset[dataset.length - 1];
-    var slope = (upperPoint['lat'] - bottomPoint['lat']) / (upperPoint['long'] - bottomPoint['long']);
-    var constant = upperPoint['lat'] - (slope * upperPoint['long'])
+    var slope = (upperPoint['lat'] - bottomPoint['lat']) / (upperPoint['lng'] - bottomPoint['lng']);
+    var constant = upperPoint['lat'] - (slope * upperPoint['lng'])
 
     var upperSolution = new Array();
     var bottomSolution = new Array();
 
     for (var i = 0; i < dataset.length; i++) {
-        classification = slope * dataset[i]['long'] + constant;
+        classification = slope * dataset[i]['lng'] + constant;
         if (i == 0) {
             upperSolution.push(dataset[i]);
         } else if (i == dataset.length - 1) {
