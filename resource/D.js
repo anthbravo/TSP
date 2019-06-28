@@ -44,10 +44,10 @@ function generateDistancesCE(INPUT, OUTPUT) {
     fs.writeFileSync(OUTPUT, JSON.stringify(D), 'utf8');
 }
 
-//generateDistancesCP('resource/CP/CP_CAPITALES.json', 'resource/CP/D_CP_CAPITALES.json');
+generateDistancesCP('resource/CP/CP_CAPITALES.json', 'resource/CP/D_CP_CAPITALES.json');
 //generateDistancesCP('resource/CP/CP_DISTRITOS.json', 'resource/CP/D_CP_DISTRITOS.json');
 //generateDistancesCP('resource/CP/CP_PROVINCIAS.json', 'resource/CP/D_CP_PROVINCIAS.json');
 
-generateDistancesCE('resource/CE/CE_LIMA.json','resource/CE/D_CE_LIMA.json');
+//generateDistancesCE('resource/CE/CE_LIMA.json','resource/CE/D_CE_LIMA.json');
 //generateDistancesCE('resource/CE/CE_SAN-MARTIN-DE-PORRES.json','resource/CE/D_CE_SAN-MARTIN-DE-PORRES.json');
 //generateDistancesCE('resource/CE/CE_APURIMAC.json','resource/CE/D_CE_APURIMAC.json');

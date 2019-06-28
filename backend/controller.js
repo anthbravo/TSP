@@ -13,6 +13,7 @@ module.exports = http.createServer((req, res) => {
             reqUrl.pathname);
 
         res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Headers', '*');   
         res.writeHead(200);
         res.end();
         return;
