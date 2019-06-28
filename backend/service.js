@@ -40,12 +40,12 @@ exports.slope = (data, response, resources) => {
         if (data['option'] == 1) {
             dataset = new Array().concat(resources['CE_SAN-MARTIN-DE-PORRES']);
             distances = new Object(resources['D_CE_SAN-MARTIN-DE-PORRES']);
-        }else if (data['option'] == 2) {
-            dataset = new Array().concat(resources['CE_APURIMAC']);
-            distances = new Object(resources['D_CE_APURIMAC']);
-        }else if (data['option'] == 3) {
+        }else if (data['option'] == 2) {            
             dataset = new Array().concat(resources['CE_SAN-MARTIN-DE-PORRES']);
             distances = new Object(resources['D_CE_SAN-MARTIN-DE-PORRES']);
+        }else if (data['option'] == 3) {
+            dataset = new Array().concat(resources['CE_APURIMAC']);
+            distances = new Object(resources['D_CE_APURIMAC']);
         }
     }
 
