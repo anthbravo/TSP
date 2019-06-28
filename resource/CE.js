@@ -43,6 +43,10 @@ function loadAndWriteCE(FILTERS, DESTINATION) {
         }
     }
 
+    newDataset.sort((a, b) => {
+        return a['lat'] - b[['lat']];
+    });
+
     fs.writeFileSync(DESTINATION, JSON.stringify(newDataset), 'utf8');
 
 }
