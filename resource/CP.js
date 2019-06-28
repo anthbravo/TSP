@@ -36,6 +36,6 @@ function loadAndWriteCP(INPUT, OUTPUT, CAPITAL_CODE) {
  * 3 DISTRITOS
  */
 var INPUT = 'resource/CP/dataset.json';
-var OUTPUT = 'resource/CP/CP_CAPITALES.json';
-var CAPITAL_CODE = '1';
+var OUTPUT = 'resource/CP/CP_RESTANTES.json';
+var CAPITAL_CODE = '0';
 loadAndWriteCP(INPUT, OUTPUT, CAPITAL_CODE);

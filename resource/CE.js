@@ -28,7 +28,15 @@ function loadAndWriteCE(FILTERS, DESTINATION) {
         for (let j = 0; j < CE.length; j++) {
 
             if (CE[j]['CODCPSIG'] == CP[i]['CODCP']) {
-                newDataset.push(CE[j]);
+
+                var centroEducativo = {};
+
+                centroEducativo['code'] = CE[j].CODLOCAL;
+                centroEducativo['name'] = CE[j].NOMCPSIG;
+                centroEducativo['lat'] = CE[j].Y_LATITUD;
+                centroEducativo['lng'] = CE[j].X_LONGITUD;
+
+                newDataset.push(centroEducativo);
                 CE.splice(j, 1);
                 j--;
             }
@@ -53,18 +61,17 @@ FILTERS.push('DIST');
 FILTERS.push('SAN MARTIN DE PORRES');
 */
 
-/*
 //CE de la región Lima
+/*
 DESTINATION = 'resource/CE/CE_LIMA.json';
 FILTERS.push('DEP');
 FILTERS.push('LIMA');
 */
 
-/*
 //CE de la región Apurimac
-DESTINATION = 'resource/CE/CE_APURIMAC.json';
+/*DESTINATION = 'resource/CE/CE_APURIMAC.json';
 FILTERS.push('DEP');
-FILTERS.push('APURIMAC');
-*/
+FILTERS.push('APURIMAC');*/
+
 
 loadAndWriteCE(FILTERS, DESTINATION);
